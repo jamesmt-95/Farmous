@@ -626,6 +626,69 @@ $('body').on('change', '#refine_product_type_cat', function () {
         }
     });
 });
+
+//refine_for_receipt_generating
+$('body').on('change', '#refine_product_type_cat_receipt', function () {
+
+    $selected_prd_type = $('#refine_product_type_cat_receipt :selected').val();
+//    alert($selected_prd_type);
+    $.ajax({
+        type: 'post',
+        url: 'exec/save_data.php',
+        data: {
+            selected_prd_type_id: $selected_prd_type,
+            context: "print_prd_cat"
+        },
+        success: function (response)
+        {
+            console.log(response);
+            $get_s = response.split(",");
+            $push_str = "";
+            $push_str = "<option value='-1' disabled hidden selected>Type Category</option>";
+            for (var i = 0; i < $get_s.length; i++)
+            {
+                $split = $get_s[i].split(':');
+                $push_str += '<option value=' + $split[0] + '>' + $split[1].toUpperCase();
+                +"</option>";
+            }
+            $('#refine_product_cat_receipt').html($push_str);
+        }
+    });
+});
+
+
+$('body').on('change', '#refine_product_cat_receipt', function () {
+
+    $sel_prd_cat = $('#refine_product_cat_receipt :selected').val();
+//    alert($sel_prd_cat);
+    $.ajax({
+        type: 'post',
+        url: 'exec/save_data.php',
+        data: {
+            selected_prd_cat: $sel_prd_cat,
+            context: "refine_prd_by_prd_cat"
+        },
+        success: function (response)
+        {
+            console.log(response);
+            $get_prd = response.split(",");
+            $push_str = "";
+            $push_str = "<option value='-1' disabled hidden selected>Product Name</option>";
+            for (var i = 0; i < $get_prd.length; i++)
+            {
+                $split = $get_prd[i].split(':');
+                $push_str += '<option  value=' + $split[0] + '>' + $split[1].toUpperCase();
+                +"</option>";
+            }
+            $('#refine_product_name').html($push_str);
+        }
+    });
+});
+
+
+
+
+
 /*refine_product_displaying products based on product_category*/
 $('body').on('change', '#refine_product_cat', function () {
 
@@ -863,6 +926,13 @@ $('body').on('click', '#save_edit_email', function ()
 
 
 });
+
+
+$('body').on('change', '#refine_product_name', function ()
+{
+    $("#prod_qua").val('');
+});
+
 /*displays_prd_details_when_user_selects_prd_from_select_on_manage_product.php*/
 $('body').on('change', '#user_edit_product', function () {
 
@@ -1156,8 +1226,8 @@ $('body').on('click', '#validate_buyer', function ()
 
     $farmer_id = $('#far_find_buyer').attr('far-id');
     $buyer_id = $('#far_find_buyer :selected').val();
-
-
+    $("#validate_buyer").attr("far-id", $farmer_id);
+    $("#validate_buyer").attr("buyer-id", $buyer_id);
 
 
     $.ajax({
@@ -1184,9 +1254,7 @@ $('body').on('click', '#validate_buyer', function ()
             console.log(response);
             $get_otp = response.split(",")[2];
             $get_farmer = response.split(",")[0];
-            alert($get_farmer);
             $get_buyer = response.split(",")[1];
-            alert($get_buyer);
             var date = new Date();
             date.setTime(date.getTime() + (60 * 60 * 1000));
             $.cookie('current_otp', $get_otp, {expires: date});
@@ -1226,6 +1294,32 @@ $('body').on('click', '#verify_otp', function ()
 
 
 });
+
+
+
+$('body').on('blur', '#prod_qua', function ()
+{
+    $req_qua = $('#prod_qua').val();
+    $prd_id = $('#refine_product_name option:selected').val();
+    $.ajax({
+        type: 'post',
+        url: 'exec/save_data.php',
+        data: {
+            quantity: $req_qua,
+            product_id: $prd_id,
+            context: "get_prd_price"
+        },
+        success: function (response)
+        {
+            console.log(response);
+            $get_price = response.split(",")[1];
+            $('#tot_price').attr("value", $get_price);
+
+        }
+    });
+
+});
+
 
 
 var userLang = navigator.language || navigator.userLanguage || navigator.languages;

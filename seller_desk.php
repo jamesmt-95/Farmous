@@ -127,7 +127,7 @@ if (!isset($_SESSION['register_id'])) {
                         Product Type
                     </div>
                     <div class="col-sm-6 col-md-12">
-                        <select class="form-control" id="refine_product_type_cat">
+                        <select class="form-control" id="refine_product_type_cat_receipt">
                             <option value="-1" disabled selected>Select Product Type</option>
 
                             <?php foreach ($get_product_type as $each_prd_type) { ?>
@@ -142,7 +142,7 @@ if (!isset($_SESSION['register_id'])) {
                         Type Category
                     </div>
                     <div class="col-sm-6 col-md-12">
-                        <select class="form-control" id="refine_product_cat">
+                        <select class="form-control" id="refine_product_cat_receipt">
 
 
                         </select>
@@ -166,17 +166,17 @@ if (!isset($_SESSION['register_id'])) {
                         Quantity (in Kg)
                     </div>
                     <div class="col-sm-6 col-md-12">
-                        <input type="text" class="form-control" id="prod_price" name="price" placeholder="Enter the Quantity in Kg">
+                        <input type="number" class="form-control" id="prod_qua" name="price" placeholder="Enter the Quantity in Kg">
                     </div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-12">
                 <div class="col-sm-6 col-md-6">
                     <div class="col-sm-4  col-md-12">
-                        Total Price
+                        Total Price (&#8377;)
                     </div>
                     <div class="col-sm-6 col-md-12">
-                        <input type="text" class="form-control" id="prod_price" name="price" placeholder=" Total Price"  readonly>
+                        <input type="text" class="form-control" id="tot_price" name="price" placeholder=" Total Price"  readonly>
                     </div>
                 </div>
 

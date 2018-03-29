@@ -58,6 +58,8 @@ if (isset($_POST['context'])) {
             break;
         case "validate_buyer_by_otp":verify_buyer_otp($db);
             break;
+        case "get_prd_price":verify_prd_price($db);
+            break;
         case "logout":logout($db);
             break;
     }
@@ -544,6 +546,19 @@ function modal_contact_admin($db) {
     } else {
         echo 'failed';
     }
+}
+
+
+function verify_prd_price($db) {
+
+    $quantity = $_POST['quantity'];
+    $prd_id = $_POST['product_id'];
+
+
+    $get_price = $db->prepare("SELECT `prd_id`, `price`*'$quantity' as Total  FROM `product_add` WHERE `prd_id`='$prd_id'");
+    $get_price->execute();
+    $price_x_qua=$get_price->fetchAll();
+    echo($price_x_qua[0]['prd_id']. "," .$price_x_qua[0]['Total']); 
 }
 
 function clear_notification($db) {

@@ -64,8 +64,10 @@ $(document).ready(function () {
     $("#del_edit_prd").hide();
     $("#edit_user_product").hide();
     $("#remember_container").show();
-    
+    //$("#generate_receipt_for_product").show();
 
+
+//cookie_login_remember
     var remember = $.cookie("remember");
     if (remember === 'true') {
         var username = $.cookie('User');
@@ -74,6 +76,9 @@ $(document).ready(function () {
         $('#Username').attr("value", username);
         $('#Password').attr("value", password);
     }
+
+//cookie_get_receipt_form_farmer_buyer_name
+
 
 });
 
@@ -1168,7 +1173,7 @@ $('body').on('click', '#validate_buyer', function ()
             document.getElementById("validate_buyer").disabled = true;
             $("#otp_field_block").show();
             countdown(2);
-           setTimeout(function () {
+            setTimeout(function () {
                 $('#otp_field_block').fadeOut('fast');
 
                 $('#far_find_buyer').prop('selectedIndex', 0);
@@ -1177,11 +1182,17 @@ $('body').on('click', '#validate_buyer', function ()
             }, 120000);
 
             console.log(response);
-            $get_otp = response.split(",")[1];
-
+            $get_otp = response.split(",")[2];
+            $get_farmer = response.split(",")[0];
+            alert($get_farmer);
+            $get_buyer = response.split(",")[1];
+            alert($get_buyer);
             var date = new Date();
-            date.setTime(date.getTime() + (2.5 * 60 * 1000));
+            date.setTime(date.getTime() + (60 * 60 * 1000));
             $.cookie('current_otp', $get_otp, {expires: date});
+            $.cookie('current_farmer', $get_farmer, {expires: date});
+            $.cookie('current_buyer', $get_buyer, {expires: date});
+
 
 //            var otp_value = $.cookie('current_otp');
         }
@@ -1195,22 +1206,25 @@ $('body').on('click', '#verify_otp', function ()
 
     $typed_otp = $('#otp_txt').val();
     $cookie_otp = $.cookie('current_otp');
-    
-  
-if($typed_otp===$cookie_otp){
-    $('#sub_main_head_child_product_display').empty();
-    $('#modal_otp_status').modal('show');
-    $('#generate_receipt_for_product').show();
-    
-    
-}
-else{
-    $('#failure_panel').html("OTP Verification failed!");
-    
-    
-}
 
-    
+
+    if ($typed_otp === $cookie_otp) {
+        $('#sub_main_head_child_product_display').empty();
+        $('#modal_otp_status').modal('show');
+        $('#generate_receipt_for_product').show();
+        var farmer = $.cookie('current_farmer');
+        var buyer = $.cookie('current_buyer');
+        $('#farmer_name').attr("value", farmer);
+        $('#buyer_name').attr("value", buyer);
+
+
+    } else {
+        $('#failure_panel').html("OTP Verification failed!");
+
+
+    }
+
+
 });
 
 

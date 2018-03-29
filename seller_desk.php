@@ -3,6 +3,7 @@ require_once './config/config.php';
 require_once './core/Database.php';
 require_once './core/Hash.php';
 require_once './core/Session.php';
+require_once './public/data_access/data_fetcher_public.php';
 
 Session::init();
 //$db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
@@ -97,83 +98,106 @@ if (!isset($_SESSION['register_id'])) {
 
 
     <div class="col-md-6" id="generate_receipt_for_product">
-
+        <div class="col-sm-12  col-md-12" id="invoice_label">
+            <p id="invoice">Product Delivery Invoice</p>
+        </div>
         <div class="row space side">
             <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Farmer Name
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Farmer Name
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <input type="text" id="farmer_name" class="form-control"  id="far_name" readonly>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" id="prod_name" class="form-control"  id="far_name">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Buyer Name
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" id="prod_name" class="form-control" id="buyer_name">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Product Type
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" id="prod_name" class="form-control" placeholder="Enter Product Name" name="product_name" >
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Type Category
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" id="prod_name" class="form-control" placeholder="Enter Product Name" name="product_name"  >
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Product Name
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" id="prod_name" class="form-control" placeholder="Enter Product Name" name="product_name"  >
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Quantity (in Kg)
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" class="form-control" id="prod_price" name="price" placeholder="Enter the Quantity in Kg">
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12">
-                    Total Price
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" class="form-control" id="prod_price" name="price" placeholder=" Total Price" onchange="pr_price()" readonly>
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Buyer Name
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <input type="text" id="buyer_name" class="form-control"  id="buyer_name" readonly>
+                    </div>
                 </div>
             </div>
 
+            <div class="col-sm-12 col-md-12">
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Product Type
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <select class="form-control" id="refine_product_type_cat">
+                            <option value="-1" disabled selected>Select Product Type</option>
+
+                            <?php foreach ($get_product_type as $each_prd_type) { ?>
+                                <option value=<?php echo $each_prd_type['product_type_id']; ?>><?php echo strtoupper($each_prd_type['product_type_name']); ?></option>
+                            <?php } ?>
+
+                        </select>
+                    </div>
+                </div>  
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Type Category
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <select class="form-control" id="refine_product_cat">
+
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Product Name
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                       <select class="form-control" id="refine_product_name">
+
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Quantity (in Kg)
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <input type="text" class="form-control" id="prod_price" name="price" placeholder="Enter the Quantity in Kg">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12">
+                        Total Price
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <input type="text" class="form-control" id="prod_price" name="price" placeholder=" Total Price"  readonly>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6 col-md-6">
+                    <div class="col-sm-4  col-md-12" >
+                        Description
+                    </div>
+                    <div class="col-sm-6 col-md-12">
+                        <input type="text" class="form-control" id="prod_desc" name="description" placeholder="Optional Description">
+
+
+                    </div>
+                </div>
+            </div>
 
         </div>
 
 
 
-        <div class="row space side">
 
-            <div class="col-sm-12 col-md-12">
-                <div class="col-sm-4  col-md-12" >
-                    Description
-                </div>
-                <div class="col-sm-6 col-md-12">
-                    <input type="text" class="form-control" id="prod_desc" name="description" placeholder="Optional Description">
-
-
-                </div>
-            </div>
-        </div>
         <div class="col-md-12 col-sm-10 user_prd_edit_save">
             <div class="col-md-2  col-sm-8" id="receipt_submit">
                 <input type="submit" value="Generate Receipt" id="submit_receipt">

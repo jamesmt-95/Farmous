@@ -2281,11 +2281,17 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 #generate_receipt_for_product div{
 
     margin-top: 6px;
-    margin-left: 2px;
+    margin-left: -2px;
 }
 #submit_receipt{
-    margin-left: 7px;
+    margin-left: 10px;
 }
 input:read-only {
     background-color: white !important;
+}
+#invoice{
+    
+    color: green;
+    margin-left:20px;
+    font-weight: bold;
 }

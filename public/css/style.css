@@ -2295,3 +2295,69 @@ input:read-only {
     margin-left:20px;
     font-weight: bold;
 }
+#success_receipt{
+    font-size: 0.8em;
+    color: green;
+    float: right;
+}
+#font_label{
+    margin-top: 10px;
+    color: black;
+    font-weight: bold;
+}
+#font_tran_number{
+    font-size: 0.8em;
+    margin-top: 8px;
+    font-weight: bold;
+}
+#font_tran_date{
+    font-size: 0.8em;
+     margin-top: 8px;
+     font-weight: bold;
+}
+#farmous_sold_by p{
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.0em;
+    
+    
+}
+#farmous_sold_to{
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.0em;
+}
+#display_frame div{
+    border: 1px solid gray;
+  
+}
+
+#display_frame p{
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin-top: 2px;
+  
+}
+#display_frame_values p{
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: black;
+    text-align: center;
+    margin-left: 3px;
+    
+}
+#display_frame_footer p{
+    font-size: 0.7em;
+    text-align: center;
+    color:#84C639;
+    
+    
+}
+#display_frame_footer{
+    margin-top: 100px;
+    
+    
+}
+

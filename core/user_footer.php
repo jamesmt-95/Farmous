@@ -52,7 +52,7 @@
         </div>
     </div>
 
-<div class="col-md-4 col-sm-4" id="footer_img_third">
+    <div class="col-md-4 col-sm-4" id="footer_img_third">
         <div class="col-md-2 col-sm-4" id="footer_img">
             <img src="./images/footer_icons/three_.png" style="width: 60px; height: 60px;">
 
@@ -265,7 +265,10 @@
                             <script src="public/js/bootstrap.min.js"></script>
                             <script src="public/js/execute.js"></script>
                             <script src="public/js/jquery.menu-aim.js"></script>
-<!--                                        <script src="public/js/main.js"></script>-->
+                           
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+                            <!--                                        <script src="public/js/main.js"></script>-->
 
                             <script src="public/js/jquery.cookie.js" type="text/javascript"></script>
                             <script src="public/js/window_loader.js"></script>

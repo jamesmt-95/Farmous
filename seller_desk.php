@@ -155,7 +155,7 @@ if (!isset($_SESSION['register_id'])) {
                         Product Name
                     </div>
                     <div class="col-sm-6 col-md-12">
-                       <select class="form-control" id="refine_product_name">
+                        <select class="form-control" id="refine_product_name">
 
 
                         </select>
@@ -202,16 +202,106 @@ if (!isset($_SESSION['register_id'])) {
             <div class="col-md-2  col-sm-8" id="receipt_submit">
                 <input type="submit" value="Generate Receipt" id="submit_receipt">
             </div>
-            <div class="col-md-offset-10">
-
+            <div class="col-md-offset-6">
+                <div class="col-md-4 col-sm-12" id="success_receipt"></div>
             </div>
 
         </div>
     </div>
 
+    <div class="clearfix"></div>
+    <!--for printing the PDF-->
+
+    <div class="col-md-7">
+        <div class="col-md-12" id="header">
+            <div class="col-md-6" id="farmous_logo">
+                <img src="images/slider/div_logo.JPG" id="image_prd"  class="img-responsive" width="auto" height="auto">	
+            </div>
+            <div class="col-md-6" id="label">
+                <div class="col-md-12" id="label">
+                    <p id="font_label">Invoice/Bill of Product Purchase</p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_tran_date">Purchase Date: </p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_tran_number">Transaction Type: Far-DIRTD2018 </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <hr/>
+
+        <div class="col-md-12" id="header_panel">
+            <div class="col-md-6" id="farmous_sold_by">
+                <div class="col-md-12" id="label">
+                    <p id="font_label_sold">Sold By:</p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_label_name"></p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_label_phone"></p>
+                </div>
+            </div>
+            <div class="col-md-6" id="farmous_sold_to">
+                <div class="col-md-12" id="label">
+                    <p id="font_label">Sold To:</p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_label_sold_to_name"></p>
+                </div>
+                <div class="col-md-12" id="label">
+                    <p id="font_label_sold_to_phone"></p>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <hr/>
+        <div class="col-md-12" id="display_frame">
+            <div class="col-md-3" id="display_frame_prd_name">
+                <p id="prd_name">Product Name</p>
+            </div>
+            <div class="col-md-3" id="display_frame_prd_unit_price">
+                <p id="prd_price">Unit Price</p>
+            </div>
+            <div class="col-md-3" id="display_frame_prd_quan">
+                <p id="prd_quan">Quantity</p>
+            </div>
+            <div class="col-md-3" id="display_frame_tot_cost">
+                <p id="prd_total">Total</p>
+            </div>
+        </div>
+        <div class="col-md-12" id="display_frame_values">
+            <div class="col-md-3" id="display_frame_prd_name">
+                <p id="prd_name_value"></p>
+            </div>
+            <div class="col-md-3" id="display_frame_prd_unit_price">
+                <p id="prd_price_value">&#8377;</p>
+            </div>
+            <div class="col-md-3" id="display_frame_prd_quan">
+                <p id="prd_quan_value"></p>
+            </div>
+            <div class="col-md-3" id="display_frame_tot_cost">
+                <p id="prd_total_value">&#8377;</p>
+            </div>
+        </div>
+
+        <div class="col-md-12" id="display_frame_footer">
+            <div class="col-md-12" id="display_frame_footer">
+                <p id="footer_txt">Thank you for purchasing with us</p>
+            </div>
+            <div class="col-md-12" id="display_footer_contact">
+                <p id="footer_txt">For more, visit www.farmousstore.ga or mail farmouscare@gmail.com </p>
+            </div>
+
+        </div>
+
 
 
     </div>
+
 
 
 
@@ -296,3 +386,5 @@ if (!isset($_SESSION['register_id'])) {
 <script src="public/js/jquery.menu-aim.js"></script>
 <script src="public/js/main.js"></script>
 <script src="public/js/modernizr.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>

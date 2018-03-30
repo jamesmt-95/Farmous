@@ -498,6 +498,7 @@ function verify_buyer_otp($db) {
     $far_lst->execute();
     $far_det = $far_lst->fetchAll();
     $farmer_name = $far_det[0]['fullname'];
+    $farmer_phone=$far_det[0]['phone'];
     /* buyer_details */
     $buyr_lst = $db->prepare("SELECT `register_id`, `fullname`, `phone`, `address`, `username`, `password`, `location_id`, `status` FROM `register` WHERE `register_id`='$buyer' and `status`=1");
     $buyr_lst->execute();
@@ -510,7 +511,7 @@ function verify_buyer_otp($db) {
 
     $content = "Hello " . $buyer_name . ", Your One Time Password(OTP) for Direct purchase from " . $farmer_name . " is " . $otp_generte . " . Please do not share this OTP with others except your dealer.";
     //send($content, $buyer_phone);
-    echo($farmer_name . "," . $buyer_name . "," . $otp_generte);
+    echo($farmer_name . "," . $farmer_phone .",". $buyer_name . "," . $buyer_phone . ",". $otp_generte);
 }
 
 function send_mob_msg_to($db) {

@@ -1252,15 +1252,18 @@ $('body').on('click', '#validate_buyer', function ()
             }, 120000);
 
             console.log(response);
-            $get_otp = response.split(",")[2];
+            $get_otp = response.split(",")[4];
             $get_farmer = response.split(",")[0];
-            $get_buyer = response.split(",")[1];
+            $get_farmer_phone = response.split(",")[1];
+            $get_buyer = response.split(",")[2];
+            $get_buyer_phone = response.split(",")[3];
             var date = new Date();
             date.setTime(date.getTime() + (60 * 60 * 1000));
             $.cookie('current_otp', $get_otp, {expires: date});
             $.cookie('current_farmer', $get_farmer, {expires: date});
             $.cookie('current_buyer', $get_buyer, {expires: date});
-
+            $.cookie('current_farmer_phone', $get_farmer_phone, {expires: date});
+            $.cookie('current_buyer_phone', $get_buyer_phone, {expires: date});
 
 //            var otp_value = $.cookie('current_otp');
         }
@@ -1340,17 +1343,53 @@ $('body').on('click', '#submit_receipt', function ()
             buy_id: $buyer_id,
             pr_id: $prdo_id,
             pr_unit: $prd_unit_price,
-            req_qu:$req_quantity,
-            tot_cst:$tot_cost,
-            desc:$description,
+            req_qu: $req_quantity,
+            tot_cst: $tot_cost,
+            desc: $description,
             context: "save_receipt"
         },
         success: function (response)
         {
             console.log(response);
-             if (response.trim() === 'saved') {
-             alert("success");
-                
+            if (response.trim() === 'saved') {
+                document.getElementById("submit_receipt").disabled = true;
+                $('#success_receipt').html("Receipt Saved Successfully..");
+
+                //printing div pdf
+                $date = new Date();
+                $val = $date.getDate() + "/" + ($date.getMonth() + 1) + "/" + $date.getFullYear();
+                $('#font_tran_date').append($val);
+
+                $farmer_name = $.cookie('current_farmer');
+                $('#font_label_name').append($farmer_name);
+
+                $farmer_phone = $.cookie('current_farmer_phone');
+                $('#font_label_phone').append($farmer_phone);
+
+                $buyer_name = $.cookie('current_buyer');
+                $('#font_label_sold_to_name').append($buyer_name);
+
+                $buyer_phone = $.cookie('current_buyer_phone');
+                $('#font_label_sold_to_phone').append($buyer_phone);
+
+                $prdo_name = $('#refine_product_name :selected').text();
+                $('#prd_name_value').append($prdo_name);
+
+                $prd_unit_price = $('#tot_price').attr('each_price');
+                $('#prd_price_value').append($prd_unit_price);
+
+                $req_quantity = $('#prod_qua').val();
+                $('#prd_quan_value').append($prd_unit_price);
+
+
+                $tot_cost = $('#tot_price').val();
+                $('#prd_total_value').append($tot_cost);
+
+                $description = $('#prod_desc').val();
+//                alert($farmer_name + $farmer_name + $prdo_name + $prd_unit_price + $req_quantity + $tot_cost + $tot_cost + $description);
+
+
+
             } else {
                 alert("Failed");
             }

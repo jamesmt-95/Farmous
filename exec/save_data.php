@@ -555,10 +555,10 @@ function verify_prd_price($db) {
     $prd_id = $_POST['product_id'];
 
 
-    $get_price = $db->prepare("SELECT `prd_id`, `price`*'$quantity' as Total  FROM `product_add` WHERE `prd_id`='$prd_id'");
+    $get_price = $db->prepare("SELECT `prd_id`, `price`, `price`*'$quantity' as Total  FROM `product_add` WHERE `prd_id`='$prd_id'");
     $get_price->execute();
     $price_x_qua=$get_price->fetchAll();
-    echo($price_x_qua[0]['prd_id']. "," .$price_x_qua[0]['Total']); 
+    echo($price_x_qua[0]['prd_id']. "," .$price_x_qua[0]['price']. "," .$price_x_qua[0]['Total']); 
 }
 
 function clear_notification($db) {

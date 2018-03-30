@@ -60,6 +60,8 @@ if (isset($_POST['context'])) {
             break;
         case "get_prd_price":verify_prd_price($db);
             break;
+        case "save_receipt":generate_receipt($db);
+            break;
         case "logout":logout($db);
             break;
     }
@@ -508,8 +510,7 @@ function verify_buyer_otp($db) {
 
     $content = "Hello " . $buyer_name . ", Your One Time Password(OTP) for Direct purchase from " . $farmer_name . " is " . $otp_generte . " . Please do not share this OTP with others except your dealer.";
     //send($content, $buyer_phone);
-    echo($farmer_name.",".$buyer_name.",".$otp_generte);
-    
+    echo($farmer_name . "," . $buyer_name . "," . $otp_generte);
 }
 
 function send_mob_msg_to($db) {
@@ -548,7 +549,6 @@ function modal_contact_admin($db) {
     }
 }
 
-
 function verify_prd_price($db) {
 
     $quantity = $_POST['quantity'];
@@ -557,8 +557,29 @@ function verify_prd_price($db) {
 
     $get_price = $db->prepare("SELECT `prd_id`, `price`, `price`*'$quantity' as Total  FROM `product_add` WHERE `prd_id`='$prd_id'");
     $get_price->execute();
-    $price_x_qua=$get_price->fetchAll();
-    echo($price_x_qua[0]['prd_id']. "," .$price_x_qua[0]['price']. "," .$price_x_qua[0]['Total']); 
+    $price_x_qua = $get_price->fetchAll();
+    echo($price_x_qua[0]['prd_id'] . "," . $price_x_qua[0]['price'] . "," . $price_x_qua[0]['Total']);
+}
+
+function generate_receipt($db) {
+
+    $farmer_id = $_POST['fam_id'];
+    $buyer_id = $_POST['buy_id'];
+    $prod_id = $_POST['pr_id'];
+    $prod_unit_price = $_POST['pr_unit'];
+    $req_quant = $_POST['req_qu'];
+    $total_cost = $_POST['tot_cst'];
+    $description = $_POST['desc'];
+
+ 
+
+    $sent_guest_msg = $db->prepare("INSERT INTO `transaction_rcrd`(`seller_id`, `buyer_id`, `prd_id`, `unit_cost`, `qty`, `tot_price`, `description`) VALUES ('$farmer_id','$buyer_id','$prod_id','$prod_unit_price','$req_quant','$total_cost','$description')");
+    $sent_guest_msg->execute();
+    if ($sent_guest_msg) {
+        echo 'saved';
+    } else {
+        echo 'Failed';
+    }
 }
 
 function clear_notification($db) {

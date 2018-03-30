@@ -1226,8 +1226,8 @@ $('body').on('click', '#validate_buyer', function ()
 
     $farmer_id = $('#far_find_buyer').attr('far-id');
     $buyer_id = $('#far_find_buyer :selected').val();
-    $("#validate_buyer").attr("far-id", $farmer_id);
-    $("#validate_buyer").attr("buyer-id", $buyer_id);
+    $("#farmer_name").attr("far-id", $farmer_id);
+    $("#buyer_name").attr("buyer-id", $buyer_id);
 
 
     $.ajax({
@@ -1312,14 +1312,53 @@ $('body').on('blur', '#prod_qua', function ()
         success: function (response)
         {
             console.log(response);
-            $get_price = response.split(",")[1];
-            $('#tot_price').attr("value", $get_price);
+            $get_each_price = response.split(",")[1];
+            $get_tot_price = response.split(",")[2];
+            $('#tot_price').attr("value", $get_tot_price);
+            $("#tot_price").attr("each_price", $get_each_price);
 
         }
     });
 
 });
 
+$('body').on('click', '#submit_receipt', function ()
+{
+    $farmer_id = $('#farmer_name').attr('far-id');
+    $buyer_id = $('#buyer_name').attr('buyer-id');
+    $prdo_id = $('#refine_product_name :selected').val();
+    $prd_unit_price = $('#tot_price').attr('each_price');
+    $req_quantity = $('#prod_qua').val();
+    $tot_cost = $('#tot_price').val();
+    $description = $('#prod_desc').val();
+
+    $.ajax({
+        type: 'post',
+        url: 'exec/save_data.php',
+        data: {
+            fam_id: $farmer_id,
+            buy_id: $buyer_id,
+            pr_id: $prdo_id,
+            pr_unit: $prd_unit_price,
+            req_qu:$req_quantity,
+            tot_cst:$tot_cost,
+            desc:$description,
+            context: "save_receipt"
+        },
+        success: function (response)
+        {
+            console.log(response);
+             if (response.trim() === 'saved') {
+             alert("success");
+                
+            } else {
+                alert("Failed");
+            }
+
+        }
+    });
+
+});
 
 
 var userLang = navigator.language || navigator.userLanguage || navigator.languages;

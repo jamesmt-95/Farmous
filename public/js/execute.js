@@ -843,7 +843,14 @@ $('body').on('click', '#notification', function ()
 {
 
     $("#sub_main_head_child_product_display").load("notification.php");
+}); 
+$('body').on('click', '#seller_dsk', function ()
+{
+
+    $("#sub_main_head_child_product_display").load("seller_desk.php");
 });
+
+
 //edit fname when click on edit on profile_info
 
 $('body').on('click', '#edit_per_info', function ()
@@ -1248,15 +1255,15 @@ $('body').on('click', '#validate_buyer', function ()
 
                 $('#far_find_buyer').prop('selectedIndex', 0);
                 $('#otp_txt').val('');
-                document.getElementById("validate_buyer").disabled = false;
+                //document.getElementById("validate_buyer").disabled = false;
             }, 120000);
 
             console.log(response);
-            $get_otp = response.split(",")[4];
-            $get_farmer = response.split(",")[0];
-            $get_farmer_phone = response.split(",")[1];
-            $get_buyer = response.split(",")[2];
-            $get_buyer_phone = response.split(",")[3];
+            $get_otp = response.split(",")[5];
+            $get_farmer = response.split(",")[1];
+            $get_farmer_phone = response.split(",")[2];
+            $get_buyer = response.split(",")[3];
+            $get_buyer_phone = response.split(",")[4];
             var date = new Date();
             date.setTime(date.getTime() + (60 * 60 * 1000));
             $.cookie('current_otp', $get_otp, {expires: date});
@@ -1280,7 +1287,8 @@ $('body').on('click', '#verify_otp', function ()
 
 
     if ($typed_otp === $cookie_otp) {
-        $('#sub_main_head_child_product_display').empty();
+  
+        $('#sub_main_head_child_product_display_otp').hide();
         $('#modal_otp_status').modal('show');
         $('#generate_receipt_for_product').show();
         var farmer = $.cookie('current_farmer');
@@ -1391,7 +1399,7 @@ $('body').on('click', '#submit_receipt', function ()
                     onrendered: function (canvas) {
                         var myImage = canvas.toDataURL("image/png");
                         var doc = new jsPDF();
-                        doc.addImage(myImage, 'JPEG', 0, 30);
+                        doc.addImage(myImage, 'JPEG', 10, 30);
                         doc.save($val+$farmer_name+$prdo_name+'.pdf');
                     }
                 });

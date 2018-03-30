@@ -2364,4 +2364,7 @@ input:read-only {
 #pdf_container{
     visibility: collapse;
 }
-
+#font_label_sold_to_phone{
+    text-align: right;
+}
+/*display:none to hide div without occupying space then show() using jquery */

@@ -263,15 +263,12 @@
                             <script src="public/js/validate.js"></script>
                             <script src="public/js/jquery-1.11.1.min.js"></script>
                             <script src="public/js/bootstrap.min.js"></script>
-                            <script src="public/js/execute.js"></script>
                             <script src="public/js/jquery.menu-aim.js"></script>
-                           
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-                            <!--                                        <script src="public/js/main.js"></script>-->
-
                             <script src="public/js/jquery.cookie.js" type="text/javascript"></script>
-                            <script src="public/js/window_loader.js"></script>
+                            <script src="public/js/window_loader.js"></script>.
+                            <script src="public/js/timer_otp.js"></script>
 
 
 

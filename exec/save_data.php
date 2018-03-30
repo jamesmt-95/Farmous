@@ -510,8 +510,8 @@ function verify_buyer_otp($db) {
 
 
     $content = "Hello " . $buyer_name . ", Your One Time Password(OTP) for Direct purchase from " . $farmer_name . " is " . $otp_generte . " . Please do not share this OTP with others except your dealer.";
-    //send($content, $buyer_phone);
-    echo($farmer_name . "," . $farmer_phone .",". $buyer_name . "," . $buyer_phone . ",". $otp_generte);
+    send($content, $buyer_phone);
+    echo(",". $farmer_name . "," . $farmer_phone .",". $buyer_name . "," . $buyer_phone . ",". $otp_generte);
 }
 
 function send_mob_msg_to($db) {

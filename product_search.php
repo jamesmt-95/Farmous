@@ -9,7 +9,7 @@ Session::init();
 //$db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
 $db = new Database();
 
-if (isset($_POST['search_prd'])) {
+
 
     $keyword = $_POST['search_key'];
     if (($keyword == '') || (is_numeric($keyword))) {
@@ -140,7 +140,7 @@ if (isset($_POST['search_prd'])) {
                     <?php
                 }
             }
-        }
+       
         ?>
     </div>
 

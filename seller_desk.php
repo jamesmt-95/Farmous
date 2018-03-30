@@ -212,7 +212,7 @@ if (!isset($_SESSION['register_id'])) {
     <div class="clearfix"></div>
     <!--for printing the PDF-->
 
-    <div class="col-md-7">
+    <div class="col-md-7" id="pdf_container">
         <div class="col-md-12" id="header">
             <div class="col-md-6" id="farmous_logo">
                 <img src="images/slider/div_logo.JPG" id="image_prd"  class="img-responsive" width="auto" height="auto">	

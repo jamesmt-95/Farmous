@@ -1379,14 +1379,22 @@ $('body').on('click', '#submit_receipt', function ()
                 $('#prd_price_value').append($prd_unit_price);
 
                 $req_quantity = $('#prod_qua').val();
-                $('#prd_quan_value').append($prd_unit_price);
+                $('#prd_quan_value').append($req_quantity);
 
 
                 $tot_cost = $('#tot_price').val();
                 $('#prd_total_value').append($tot_cost);
 
-                $description = $('#prod_desc').val();
-//                alert($farmer_name + $farmer_name + $prdo_name + $prd_unit_price + $req_quantity + $tot_cost + $tot_cost + $description);
+                //js_to_print_pdf
+
+                html2canvas($("#pdf_container"), {
+                    onrendered: function (canvas) {
+                        var myImage = canvas.toDataURL("image/png");
+                        var doc = new jsPDF();
+                        doc.addImage(myImage, 'JPEG', 0, 30);
+                        doc.save($val+$farmer_name+$prdo_name+'.pdf');
+                    }
+                });
 
 
 

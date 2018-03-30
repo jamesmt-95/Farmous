@@ -2344,8 +2344,9 @@ input:read-only {
     margin-top: 20px;
     font-size: 0.9em;
     color: black;
-    text-align: center;
+    text-align: left;
     margin-left: 3px;
+    font-weight: bold;
     
 }
 #display_frame_footer p{
@@ -2359,5 +2360,8 @@ input:read-only {
     margin-top: 100px;
     
     
+}
+#pdf_container{
+    visibility: collapse;
 }
 

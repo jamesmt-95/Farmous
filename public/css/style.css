@@ -17,7 +17,7 @@ p{
     font-size: 1.8em;
     color: red;
     letter-spacing: 5px;
-    
+
 }
 h1,h4,h3,h4,h5,h6,a{
     font-family:'Ubuntu', sans-serif !important;
@@ -2273,7 +2273,7 @@ h5 p{
     display: none;
 }
 #generate_receipt_for_product{
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
     margin-top: 26px;
     width: 60%;
     margin-left: 2%;
@@ -2290,7 +2290,7 @@ input:read-only {
     background-color: white !important;
 }
 #invoice{
-    
+
     color: green;
     margin-left:20px;
     font-weight: bold;
@@ -2312,15 +2312,15 @@ input:read-only {
 }
 #font_tran_date{
     font-size: 0.8em;
-     margin-top: 8px;
-     font-weight: bold;
+    margin-top: 8px;
+    font-weight: bold;
 }
 #farmous_sold_by p{
     text-align: left;
     font-weight: bold;
     font-size: 1.0em;
-    
-    
+
+
 }
 #farmous_sold_to{
     text-align: right;
@@ -2329,7 +2329,7 @@ input:read-only {
 }
 #display_frame div{
     border: 1px solid gray;
-  
+
 }
 
 #display_frame p{
@@ -2338,7 +2338,7 @@ input:read-only {
     color: black;
     text-align: left;
     margin-top: 2px;
-  
+
 }
 #display_frame_values p{
     margin-top: 20px;
@@ -2347,19 +2347,19 @@ input:read-only {
     text-align: left;
     margin-left: 3px;
     font-weight: bold;
-    
+
 }
 #display_frame_footer p{
     font-size: 0.7em;
     text-align: center;
     color:#84C639;
-    
-    
+
+
 }
 #display_frame_footer{
     margin-top: 100px;
-    
-    
+
+
 }
 #pdf_container{
     visibility: collapse;
@@ -2368,3 +2368,55 @@ input:read-only {
     text-align: right;
 }
 /*display:none to hide div without occupying space then show() using jquery */
+
+#loyalty_container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    margin-top: 150px;
+    width: 60%;
+    margin-left: 40%;
+    border-radius: 5px;
+    margin-bottom: 150px;
+    
+
+}
+#loyalty_label{
+    font-family:monospace;
+    color:#84C639;
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-top: 30px;
+
+
+}
+.profile_info_label{
+    margin-top: 5px;
+}
+.profile_info_label2{
+    margin-top: 25px;
+}
+#fname_loyalty{
+    margin-left: -25px;
+    font-size: 0.9em;
+    font-weight: bold;
+    color:black;
+}
+#rwrd_phone{
+    margin-left: -25px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color:black;
+}
+#rwrd_score_value{
+    font-size: 1.5em;
+    font-weight: bold;
+    color:#84C639;
+    margin-bottom: 20px;
+
+}
+.profile_info_rwrd_id p{
+    text-align: right;
+    font-size: 0.9em;
+    color: black;
+    margin-bottom: 20px;
+    font-weight: bold;
+}

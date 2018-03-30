@@ -849,6 +849,11 @@ $('body').on('click', '#seller_dsk', function ()
 
     $("#sub_main_head_child_product_display").load("seller_desk.php");
 });
+$('body').on('click', '#my_reward', function ()
+{
+
+    $("#sub_main_head_child_product_display").load("reward_card.php");
+});
 
 
 //edit fname when click on edit on profile_info

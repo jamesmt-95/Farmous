@@ -2376,7 +2376,7 @@ input:read-only {
     margin-left: 40%;
     border-radius: 5px;
     margin-bottom: 150px;
-    
+
 
 }
 #loyalty_label{
@@ -2421,9 +2421,110 @@ input:read-only {
     font-weight: bold;
 }
 .container table{
-  padding: 10px;
+    padding: 10px;
 }
 #user_history{
     margin-top: 10px;
     margin-left: 5px;
+}
+#modal_get_phone{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    width:350px;
+    font-size: 1.0em;
+    color: black;
+
+}
+#modal_get_phone:focus{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #1a93de;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+
+}
+#contact_get_otp{
+    width:90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    background-color: #1a93de;
+    margin-left: 20px;
+    margin-top:4px;
+    color: white;
+
+}
+
+
+#modal_get_otp{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    width:350px;
+    margin-top: 20px;
+    font-size: 1.0em;
+    color: black;
+
+}
+#modal_get_otp:focus{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #1a93de;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+
+}
+#submit_otp{
+    width:90px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+    background-color: #1a93de;
+    margin-left: 20px;
+    margin-top:4px;
+    color: white;
+    margin-top: 20px;
+}
+
+#notif_phone{
+    color:#84C639;
+    font-size: 0.8em;
+}
+#notif_otp{
+    color:#84C639;
+    font-size: 0.8em;
+}    
+
+
+#modal_txt_pass{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    width:350px;
+    margin-top: 20px;
+    font-size: 1.0em;
+    color: black;
+}
+#modal_txt_pass:focus{
+    border: 0;
+    outline: 0;
+    background: #fff;
+    border: none;
+    border-bottom: 1px solid #1a93de;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+
+}
+#submit_frgt_psw{
+    margin-left: 382px;
 }

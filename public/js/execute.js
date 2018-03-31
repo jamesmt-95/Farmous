@@ -80,6 +80,9 @@ $(document).ready(function () {
 //cookie_get_receipt_form_farmer_buyer_name
 
 
+
+
+
 });
 
 
@@ -843,7 +846,7 @@ $('body').on('click', '#notification', function ()
 {
 
     $("#sub_main_head_child_product_display").load("notification.php");
-}); 
+});
 $('body').on('click', '#seller_dsk', function ()
 {
 
@@ -1298,7 +1301,7 @@ $('body').on('click', '#verify_otp', function ()
 
 
     if ($typed_otp === $cookie_otp) {
-  
+
         $('#sub_main_head_child_product_display_otp').hide();
         $('#modal_otp_status').modal('show');
         $('#generate_receipt_for_product').show();
@@ -1411,7 +1414,7 @@ $('body').on('click', '#submit_receipt', function ()
                         var myImage = canvas.toDataURL("image/png");
                         var doc = new jsPDF();
                         doc.addImage(myImage, 'JPEG', 10, 30);
-                        doc.save($val+$farmer_name+$prdo_name+'.pdf');
+                        doc.save($val + $farmer_name + $prdo_name + '.pdf');
                     }
                 });
 

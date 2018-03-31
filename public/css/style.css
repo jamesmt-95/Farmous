@@ -2497,10 +2497,20 @@ input:read-only {
     color:#84C639;
     font-size: 0.8em;
 }
+
+#notif_phone_error{
+    color:red;
+    font-size: 0.8em;
+}
+
 #notif_otp{
     color:#84C639;
     font-size: 0.8em;
-}    
+}   
+#notif_otp_error{
+    color:red;
+    font-size: 0.8em;
+} 
 
 
 #modal_txt_pass{
@@ -2527,4 +2537,7 @@ input:read-only {
 }
 #submit_frgt_psw{
     margin-left: 382px;
+}
+#modal_phone_block{
+    display: none;
 }

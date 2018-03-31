@@ -44,33 +44,35 @@ $db = new Database();
 
 
                         <div class="modal-body">
-                            <div class="col-md-12"id="modal_phone_block">
+                            <div class="col-md-12" id="modal_phone_bl">
                                 <div class="clsmodal col-md-8">
                                     <input type="text" id="modal_get_phone" class="form-module" maxlength="10" placeholder="Enter Mobile Number">
                                 </div>
                                 <div class="clsmodal col-md-4">
-                                    <button type="button"  id="contact_get_otp" class="btn btn-default" data-dismiss="modal">Get OTP</button>
+                                    <button type="button"  id="contact_get_otp" class="btn btn-default">Get OTP</button>
                                 </div>
                                 <div class="clsmodal col-md-12">
-                                    <p id="notif_phone">Verification Code sent to your Mobile.</p>
+                                    <p id="notif_phone"></p>
+                                    <p id="notif_phone_error"></p>
                                 </div>
 
                             </div>
 
-                            <div class="col-md-12" id="modal_otp_block">
+                            <div class="col-md-12" id="modal_otp_bl">
                                 <div class="clsmodal col-md-8">
                                     <input type="text" id="modal_get_otp" class="form-module" maxlength="6" placeholder="Enter OTP">
                                 </div>
                                 <div class="clsmodal col-md-4">
-                                    <button type="button"  id="submit_otp" class="btn btn-default" data-dismiss="modal">Verify</button>
+                                    <button type="button"  id="submit_otp" class="btn btn-default">Verify</button>
                                 </div>
                                 <div class="clsmodal col-md-12">
-                                    <p id="notif_otp">OTP Verified Successfully.</p>
+                                    <p id="notif_otp"></p>
+                                    <p id="notif_otp_error"></p>
                                 </div>
 
                             </div>
 
-                            <div class="col-md-12" id="modal_pass_block">
+                            <div class="col-md-12" id="modal_pass_bl">
                                 <div class="clsmodal col-md-8">
                                     <input type="password" id="modal_txt_pass" class="form-module" placeholder="Enter Password">
                                 </div>

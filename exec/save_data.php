@@ -60,7 +60,9 @@ if (isset($_POST['context'])) {
             break;
         case "get_prd_price":verify_prd_price($db);
             break;
-        case "save_receipt":generate_receipt($db);
+        case "save_receipt":generate_receipt($db);              
+            break;
+        case "validate_mob_rst_psw":check_user_with_mob($db);              
             break;
         case "logout":logout($db);
             break;
@@ -581,6 +583,17 @@ function generate_receipt($db) {
     } else {
         echo 'Failed';
     }
+}
+
+
+function check_user_with_mob($db) {
+
+    $g_mob = $_POST['mob_no'];
+
+    $get_user_det = $db->prepare("SELECT `register_id`, `phone` FROM `register` WHERE `phone`='$g_mob'");
+    $get_user_det->execute();
+    $user_is = $get_user_det->fetchAll();
+    echo($price_x_qua[0]['prd_id'] . "," . $price_x_qua[0]['price'] . "," . $price_x_qua[0]['Total']);
 }
 
 function clear_notification($db) {

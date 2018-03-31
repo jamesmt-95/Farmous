@@ -64,6 +64,8 @@ $(document).ready(function () {
     $("#del_edit_prd").hide();
     $("#edit_user_product").hide();
     $("#remember_container").show();
+    $("#modal_otp_bl").hide();
+    $("#modal_pass_bl").hide();
     //$("#generate_receipt_for_product").show();
 
 
@@ -78,9 +80,6 @@ $(document).ready(function () {
     }
 
 //cookie_get_receipt_form_farmer_buyer_name
-
-
-
 
 
 });
@@ -827,6 +826,10 @@ $('body').on('click', '#searchprd', function () {
         }
     });
 });
+
+
+
+
 $('body').on('click', '#prof_information', function ()
 {
 
@@ -1428,6 +1431,40 @@ $('body').on('click', '#submit_receipt', function ()
     });
 
 });
+
+$('body').on('click', '#contact_get_otp', function ()
+{
+    $mob_number = $('#modal_get_phone').val();
+    if (($mob_number === '') || ($mob_number.length !== 10)) {
+        $('#notif_phone_error').empty();
+        $('#notif_phone_error').append("Please Enter Valid Number");
+    } else {
+        $('#notif_phone_error').empty();
+
+
+
+        $.ajax({
+            type: 'post',
+            url: 'exec/save_data.php',
+            data: {
+                mob_no: $mob_number,
+                context: "validate_mob_rst_psw"
+            },
+            success: function (response)
+            {
+                console.log(response);
+                $get_each_price = response.split(",")[1];
+                $get_tot_price = response.split(",")[2];
+                $("#modal_otp_bl").show();
+
+
+            }
+        });
+    }
+});
+
+
+
 
 
 var userLang = navigator.language || navigator.userLanguage || navigator.languages;

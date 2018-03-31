@@ -66,6 +66,7 @@ $(document).ready(function () {
     $("#remember_container").show();
     $("#modal_otp_bl").hide();
     $("#modal_pass_bl").hide();
+    $('#modal_pass_status').modal('show');
     //$("#generate_receipt_for_product").show();
 
 
@@ -1453,11 +1454,27 @@ $('body').on('click', '#contact_get_otp', function ()
             success: function (response)
             {
                 console.log(response);
-                $get_each_price = response.split(",")[1];
-                $get_tot_price = response.split(",")[2];
-                $("#modal_otp_bl").show();
+                if (response.trim() === 'failed') {
+                    $('#notif_phone').empty();
+                    $('#notif_phone_error').empty();
+                    $('#notif_phone_error').append("No Active account with this Number");
 
-
+                } else {
+                    $('#notif_phone_error').empty();
+                    $('#notif_phone').empty();
+                    $('#notif_phone').append("Verification Code sent to your Mobile");
+                    $active_user_id = response.split(",")[1];
+                    $active_user_phone = response.split(",")[2];
+                    $otp_rcvd = response.split(",")[3];
+                    //cookie
+                    var date = new Date();
+                    date.setTime(date.getTime() + (30 * 60 * 1000));
+                    $.cookie('active_user', $active_user_id, {expires: date});
+                    $.cookie('active_user_ph', $active_user_phone, {expires: date});
+                    $.cookie('usr_rcvd_otp', $otp_rcvd, {expires: date});
+                    $("#modal_otp_bl").show();
+                    document.getElementById("contact_get_otp").disabled = true;
+                }
             }
         });
     }
@@ -1465,7 +1482,68 @@ $('body').on('click', '#contact_get_otp', function ()
 
 
 
+$('body').on('click', '#submit_otp', function ()
+{
+    $typed_otp = $('#modal_get_otp').val();
+    if (($typed_otp === '') || ($typed_otp.length !== 6)) {
+        $('#notif_otp').empty();
+        $('#notif_otp_error').empty();
+        $('#notif_otp_error').append("Please verify your OTP");
+    } else {
+        $org_otp = $.cookie('usr_rcvd_otp');
+        if ($typed_otp === $org_otp) {
+            $('#notif_otp_error').empty();
+            $('#notif_otp').empty();
+            $('#notif_otp').append("OTP Verified successfully..");
+            $("#modal_pass_bl").show();
+            document.getElementById("submit_otp").disabled = true;
 
+        } else {
+            $('#notif_otp').empty();
+            $('#notif_otp_error').empty();
+            $('#notif_otp_error').append("Please verify your OTP");
+        }
+
+    }
+});
+
+
+
+$('body').on('click', '#submit_frgt_psw', function ()
+{
+    $typed_psw = $('#modal_txt_pass').val();
+    if ($typed_psw.length === 0) {
+        alert("Minimum of 6 characters in length,Maximum of 16 characters in length, Including two special characters and three numbers");
+    } else {
+        $user_val_id = $.cookie('active_user');
+        $user_ph = $.cookie('active_user_ph');
+
+        $.ajax({
+            type: 'post',
+            url: 'exec/save_data.php',
+            data: {
+                user_id_upd: $user_val_id,
+                user_phone: $user_ph,
+                pasw_to_updt: $typed_psw,
+                context: "update_psw"
+            },
+            success: function (response)
+            {
+                console.log(response);
+                $status = response.split(",")[1];
+                if ($status.trim() === 'success') {
+                    $('#modal_reset_psw').modal('hide');
+                    window.location = "login";
+                    
+                } else {
+                    $('#pass_change_notif').empty();
+                    $('#pass_change_notif').append("Failed to update your Password.");
+                }
+
+            }
+        });
+    }
+});
 
 var userLang = navigator.language || navigator.userLanguage || navigator.languages;
 if (userLang.substr(0, 2) !== "en") {

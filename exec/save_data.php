@@ -60,9 +60,11 @@ if (isset($_POST['context'])) {
             break;
         case "get_prd_price":verify_prd_price($db);
             break;
-        case "save_receipt":generate_receipt($db);              
+        case "save_receipt":generate_receipt($db);
             break;
-        case "validate_mob_rst_psw":check_user_with_mob($db);              
+        case "validate_mob_rst_psw":check_user_with_mob($db);
+            break;
+        case "update_psw":update_user_pw($db);
             break;
         case "logout":logout($db);
             break;
@@ -500,7 +502,7 @@ function verify_buyer_otp($db) {
     $far_lst->execute();
     $far_det = $far_lst->fetchAll();
     $farmer_name = $far_det[0]['fullname'];
-    $farmer_phone=$far_det[0]['phone'];
+    $farmer_phone = $far_det[0]['phone'];
     /* buyer_details */
     $buyr_lst = $db->prepare("SELECT `register_id`, `fullname`, `phone`, `address`, `username`, `password`, `location_id`, `status` FROM `register` WHERE `register_id`='$buyer' and `status`=1");
     $buyr_lst->execute();
@@ -513,7 +515,7 @@ function verify_buyer_otp($db) {
 
     $content = "Hello " . $buyer_name . ", Your One Time Password(OTP) for Direct purchase from " . $farmer_name . " is " . $otp_generte . " . Please do not share this OTP with others except your dealer.";
     send($content, $buyer_phone);
-    echo(",". $farmer_name . "," . $farmer_phone .",". $buyer_name . "," . $buyer_phone . ",". $otp_generte);
+    echo("," . $farmer_name . "," . $farmer_phone . "," . $buyer_name . "," . $buyer_phone . "," . $otp_generte);
 }
 
 function send_mob_msg_to($db) {
@@ -574,7 +576,7 @@ function generate_receipt($db) {
     $total_cost = $_POST['tot_cst'];
     $description = $_POST['desc'];
 
- 
+
 
     $sent_guest_msg = $db->prepare("INSERT INTO `transaction_rcrd`(`seller_id`, `buyer_id`, `prd_id`, `unit_cost`, `qty`, `tot_price`, `description`) VALUES ('$farmer_id','$buyer_id','$prod_id','$prod_unit_price','$req_quant','$total_cost','$description')");
     $sent_guest_msg->execute();
@@ -585,15 +587,44 @@ function generate_receipt($db) {
     }
 }
 
-
 function check_user_with_mob($db) {
 
     $g_mob = $_POST['mob_no'];
 
-    $get_user_det = $db->prepare("SELECT `register_id`, `phone` FROM `register` WHERE `phone`='$g_mob'");
+    $get_user_det = $db->prepare("SELECT `register_id`, `fullname`, `phone` FROM `register` WHERE `phone`='$g_mob'");
     $get_user_det->execute();
     $user_is = $get_user_det->fetchAll();
-    echo($price_x_qua[0]['prd_id'] . "," . $price_x_qua[0]['price'] . "," . $price_x_qua[0]['Total']);
+    if ($user_is == NULL) {
+        echo 'failed';
+    } else {
+
+        $otp_reset = mt_rand(100000, 999999);
+
+        $content = "Hello User, Your One Time Password(OTP) for resetting the password  is " . $otp_reset . " . Please use this code on the webpage where OTP is requested.";
+        send($content, $g_mob);
+        echo("," . $user_is[0]['register_id'] . "," . $user_is[0]['phone'] . "," . $otp_reset);
+    }
+}
+
+function update_user_pw($db) {
+    $SHK = "<::&$:{+)(*&^%$#@#$%&@#$%^&*+--+--+><$%%$>>><__asdSdas&@#$%^&><$%%$>>><__";
+    $user_id = $_POST['user_id_upd'];
+    $usr_phn = $_POST['user_phone'];
+    $password = $_POST['pasw_to_updt'];
+    $pass_encrypt = hash('sha256', $SHK . $password);
+
+
+    $update_usr_pw = $db->prepare("UPDATE `register` SET `password`='$pass_encrypt'  WHERE `register_id`='$user_id'");
+    $update_usr_pw->execute();
+    $date = date_default_timezone_set('Asia/Kolkata');
+    $updated_time = date("D M j G:i:s A T Y");
+    if ($update_usr_pw) {
+        $content = "Hello User, Your Farmous password was reset using the phone number " . $usr_phn . " on " . $updated_time . ".If you do this, you can safely disregard this messsage. Otherwise please contact us immediately, or mail us to farmouscare@gmail.com . Thank you ";
+        send($content, $usr_phn);
+        echo ',success';
+    } else {
+        echo 'failed,0';
+    }
 }
 
 function clear_notification($db) {

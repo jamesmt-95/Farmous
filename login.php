@@ -74,9 +74,13 @@ $db = new Database();
 
                             <div class="col-md-12" id="modal_pass_bl">
                                 <div class="clsmodal col-md-8">
-                                    <input type="password" id="modal_txt_pass" class="form-module" placeholder="Enter Password">
+                                    <input type="password" id="modal_txt_pass" class="form-module" placeholder="Enter Password" onchange="otp_pass()">
                                 </div>
 
+
+                            </div>
+                            <div class="clsmodal col-md-12">
+                                <p id="pass_change_notif"></p>
 
                             </div>
 
@@ -98,7 +102,22 @@ $db = new Database();
                 </div>
             </div>
 
-
+            <div class="modal fade" id="modal_pass_status" role="dialog">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><p id="con_status_tick">&#10004;</p></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Your Password has been changed</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>

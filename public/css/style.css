@@ -2511,7 +2511,10 @@ input:read-only {
     color:red;
     font-size: 0.8em;
 } 
-
+#pass_change_notif{
+    color:red;
+    font-size: 0.8em;
+} 
 
 #modal_txt_pass{
     border: 0;

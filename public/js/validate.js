@@ -58,7 +58,7 @@ function pass()
     var pass = /^[a-zA-Z-_$%@]{6,16}[0-9]{1,3}$/;
     if (document.getElementById('Password').value.search(pass) === -1)
     {
-        alert("Enter a Valid Password");
+       alert("Minimum of 6 characters in length,Maximum of 16 characters in length, Including two special characters and three numbers");
         document.getElementById('Password').value='';
         document.getElementById('Password').focus();
         return false;
@@ -162,6 +162,18 @@ if (document.getElementById('prd_stock').value.search(stock) === -1)
         alert("Enter Valid Stock");
         document.getElementById('prd_stock').value='';
         document.getElementById('prd_stock').focus();
+        return false;
+    }
+}
+
+function otp_pass()
+{
+    var pass = /^[a-zA-Z-_$%@]{6,16}[0-9]{1,3}$/;
+    if (document.getElementById('modal_txt_pass').value.search(pass) === -1)
+    {
+        alert("Minimum of 6 characters in length,Maximum of 16 characters in length, Including two special characters and three numbers");
+        document.getElementById('modal_txt_pass').value='';
+        document.getElementById('modal_txt_pass').focus();
         return false;
     }
 }

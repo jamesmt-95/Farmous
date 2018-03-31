@@ -855,6 +855,12 @@ $('body').on('click', '#my_reward', function ()
     $("#sub_main_head_child_product_display").load("reward_card.php");
 });
 
+$('body').on('click', '#my_history', function ()
+{
+
+    $("#sub_main_head_child_product_display").load("user_history.php");
+});
+
 
 //edit fname when click on edit on profile_info
 

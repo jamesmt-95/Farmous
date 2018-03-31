@@ -2372,7 +2372,7 @@ input:read-only {
 #loyalty_container{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
     margin-top: 150px;
-    width: 60%;
+    width: 55%;
     margin-left: 40%;
     border-radius: 5px;
     margin-bottom: 150px;
@@ -2419,4 +2419,11 @@ input:read-only {
     color: black;
     margin-bottom: 20px;
     font-weight: bold;
+}
+.container table{
+  padding: 10px;
+}
+#user_history{
+    margin-top: 10px;
+    margin-left: 5px;
 }

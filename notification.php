@@ -100,11 +100,3 @@ foreach ($notifi as $noti) {
 }
 ?>
 
-<script src="public/js/upload_content.js"></script>
-<script src="public/js/validate.js"></script>
-<script src="public/js/jquery-1.11.1.min.js"></script>
-<script src="public/js/bootstrap.min.js"></script>
-<script src="public/js/execute.js"></script>
-<script src="public/js/jquery.menu-aim.js"></script>
-<script src="public/js/main.js"></script>
-<script src="public/js/modernizr.js"></script>

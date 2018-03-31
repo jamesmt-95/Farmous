@@ -13,7 +13,7 @@ if (!isset($_SESSION['register_id'])) {
 } else {
 
     $farm_id = $_SESSION['register_id'];
-    $farm_get_rwrd = $db->prepare("SELECT `buyer_id`, round(sum(`tot_price`)*1/100,0) as reward FROM `transaction_rcrd` WHERE `buyer_id`=4");
+    $farm_get_rwrd = $db->prepare("SELECT `buyer_id`, round(sum(`tot_price`)*1/100,0) as reward FROM `transaction_rcrd` WHERE `buyer_id`='$farm_id'");
     $farm_get_rwrd->execute();
     $rwrd_point = $farm_get_rwrd->fetchAll();
 
@@ -22,7 +22,7 @@ if (!isset($_SESSION['register_id'])) {
     $detail_farmer = $farm_name->fetchAll();
 
 
-    if ($rwrd_point == NULL) {
+    if ($rwrd_point[0]['reward']<=0) {
         ?>    
 
 
@@ -167,22 +167,3 @@ if (!isset($_SESSION['register_id'])) {
 }
 ?>
 
-<script src="public/js/jquery-1.11.1.min.js"></script>
-<script src="public/js/execute.js"></script>
-<script src="public/js/jquery.menu-aim.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
-<script async="async" src="https://www.google.com/adsense/search/ads.js"></script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<script src="public/js/upload_content.js"></script>
-<script src="public/js/validate.js"></script>
-<script src="public/js/jquery-1.11.1.min.js"></script>
-<script src="public/js/bootstrap.min.js"></script>
-<script src="public/js/jquery.menu-aim.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script src="public/js/jquery.cookie.js" type="text/javascript"></script>
-<script src="public/js/window_loader.js"></script>.
-<script src="public/js/timer_otp.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>

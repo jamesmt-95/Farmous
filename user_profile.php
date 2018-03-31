@@ -106,7 +106,7 @@ if (!isset($_SESSION['register_id'])) {
                 <a class="prof_info" id="my_reward" href="#"><div class="col-sm-6 col-md-12 link_addr">
                         My Rewards
                     </div></a>
-                <a class="prof_info" id="my_wishlist" href="#"><div class="col-sm-6 col-md-12 link_addr">
+                <a class="prof_info" id="my_history" href="#"><div class="col-sm-6 col-md-12 link_addr">
                         Recent History
                     </div></a>
                 <hr/>

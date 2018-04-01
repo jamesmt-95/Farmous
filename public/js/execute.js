@@ -66,7 +66,7 @@ $(document).ready(function () {
     $("#remember_container").show();
     $("#modal_otp_bl").hide();
     $("#modal_pass_bl").hide();
-    $('#modal_pass_status').modal('show');
+    //$('#modal_pass_status').modal('show');
     //$("#generate_receipt_for_product").show();
 
 

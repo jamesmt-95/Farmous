@@ -12,8 +12,13 @@ $db = new Database();
 if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
     $var_value = $_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'];
 
+    $secured_get= base64_decode($var_value);
+    $secured_id = preg_replace(sprintf('/%s/', $key), '', $secured_get);
+
+
+
     /* selecting details of product */
-    $view_product = $db->prepare("SELECT * FROM `product_add` WHERE `prd_id`='$var_value'");
+    $view_product = $db->prepare("SELECT * FROM `product_add` WHERE `prd_id`='$secured_id'");
     $view_product->execute();
     $sel_product = $view_product->fetchAll();
 
@@ -31,7 +36,7 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
     $ln_ = $loc_name_is[0]['location_name'];
 
     //getting_related_products_of_requested_product's
-    $rel_product = $db->prepare("SELECT * FROM `product_add` WHERE `prd_id`>'$var_value' limit 2");
+    $rel_product = $db->prepare("SELECT * FROM `product_add` WHERE `prd_id`>'$secured_id' limit 2");
     $rel_product->execute();
     $det_relproduct = $rel_product->fetchAll();
     ?>
@@ -122,7 +127,7 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
                         <h4 class="modal-title" style=" text-align-last: center;color: orangered;">NOTIFY FARMER</h4>
                     </div>
 
-                    <?php if (isset($_SESSION['register_id'])) { ?>
+    <?php if (isset($_SESSION['register_id'])) { ?>
                         <div class="modal-body">
                             If you wish to buy, send a Message to Farmer  <hr/>
 
@@ -132,9 +137,9 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
                             <button type="button" data-id="<?php echo $sel_product[0]['prd_id']; ?>" id="user_exist_yes_send" class="btn btn-default" data-dismiss="modal">SEND</button>
                             <button type="button" id="no_send" class="btn btn-default" data-dismiss="modal">CANCEL</button>
                         </div>
-                        <?php
-                    } else {
-                        ?>
+        <?php
+    } else {
+        ?>
                         <div class="modal-body">
                             Please provide your details  <hr/>
                             <input type="text" placeholder="Fullname" id="wish_fname" class="form-control">
@@ -146,8 +151,8 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
                             <button type="button" data-id="<?php echo $sel_product[0]['prd_id']; ?>" id="yes_send" class="btn btn-default" data-dismiss="modal">SEND</button>
                             <button type="button" id="no_send" class="btn btn-default" data-dismiss="modal">CANCEL</button>
                         </div>
-                    <?php }
-                    ?>
+    <?php }
+    ?>
 
                 </div>
             </div>
@@ -161,8 +166,8 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
     <div class="col-md-5 col-sm-12" id="related_products_of_viewed_product">
         <font id="spon_rel_prd">Sponsored products related to this item</font>
         <div class="col-md-12 related_prd_border">
-            <?php foreach ($det_relproduct as $each_fet_rel_product) { ?>
-                <a target="_blank" href="view_product.php?73ce347c9ef8a7b158b4529673bf67ff=<?php echo $each_fet_rel_product['prd_id']; ?>&534ec62ce4097791f3273f229ef5803c
+    <?php foreach ($det_relproduct as $each_fet_rel_product) { ?>
+                <a target="_blank" href="view_product.php?c0f5de72e5c2cebef43b1bbb15ddd08e&9acb44549b41563697bb490144ec6258&73ce347c9ef8a7b158b4529673bf67ff=<?php echo base64_encode($each_fet_rel_product['prd_id'] . $key); ?>&534ec62ce4097791f3273f229ef5803c
                    =c0f5de72e5c2cebef43b1bbb15ddd08e&9acb44549b41563697bb490144ec6258
                    =b326b5062b2f0e69046810717534cb09">
                     <div class="col-md-6" id="releted_prd_frame">
@@ -170,8 +175,8 @@ if (isset($_REQUEST['73ce347c9ef8a7b158b4529673bf67ff'])) {
                         <fontt id="rel_prd_name"><?php echo $each_fet_rel_product['prd_name']; ?></fontt>
                     </div>
                 </a>
-            <?php }
-            ?>
+    <?php }
+    ?>
         </div>
     </div>
 

@@ -21,7 +21,7 @@ if (!isset($_SESSION['register_id'])) {
         $reg_id = $_SESSION['register_id'];
         $far_id = $db->prepare("SELECT `fullname`, `phone` FROM `register` WHERE `register_id`='$reg_id'");
         $far_id->execute();
-        $far_is = $get_suser->fetchAll();
+        $far_is = $far_id->fetchAll();
         $far_name = $far_is[0]['fullname'];
         $far_phone = $far_is[0]['phone'];
 
@@ -43,9 +43,9 @@ if (!isset($_SESSION['register_id'])) {
         } else {
 
 
-            $sql_verify = "SELECT `prd_name` FROM `product_add` WHERE `prd_name`='$prd_name'";
-            $data = $db->select($sql_verify);
-
+            $sql_verify = $db->prepare("SELECT `prd_name` FROM `product_add` WHERE `prd_name`='$prd_name'");
+            $sql_verify->execute();
+            $data = $sql_verify->fetchAll();
 
 
             if ($data[0]['prd_name'] == $prd_name) {
@@ -59,7 +59,7 @@ if (!isset($_SESSION['register_id'])) {
                 if ($add_query) {
                     echo"<script>alert('Product Added');</script>";
                     $content = "Hello " . $far_name . ". You have recently added  " . $prd_name . " at Rs:" . $prd_price . "/- to Farmous Store.buy at Rs: " . $prd_price . ". If it's not you,send your review to farmouscare@gmail.com";
-                    send($content, $far_phone);
+                    sendprd_add($content, $far_phone);
                 }
             }
         }

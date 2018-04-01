@@ -6,7 +6,6 @@
         <div class="col-sm-8 farmous_newsletter_right">
             <form action="#" method="post">
                 <input type="email" name="Email"  placeholder="Enter your E-Mail"
-
                        required="">
                 <input type="submit" value="Submit">
             </form>
@@ -18,7 +17,7 @@
 <!-- footer -->
 <div class="col-sm-12 footer">
     <p id="com_stmnt"> “Farmous” is owned & managed by “Farmous India Private Limited” and is not related, linked or interconnected in whatsoever manner or nature, to any other business services.
-    </p> 
+    </p>
 </div>
 <div class="clearfix"> </div>
 <hr>
@@ -267,7 +266,7 @@
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.min.js"></script>
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
                             <script src="public/js/window_loader.js"></script>.
-                            
+
                             <script src="public/js/jquery.cookie.js" type="text/javascript"></script>
                             <script src="public/js/window_loader.js"></script>.
                             <script src="public/js/timer_otp.js"></script>

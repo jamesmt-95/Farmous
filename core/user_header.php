@@ -3,6 +3,7 @@ require_once './config/config.php';
 require_once './core/Database.php';
 require_once './core/Hash.php';
 require_once './core/Session.php';
+require_once './core/send_sms.php';
 Session::init();
 //$db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
 ?>
@@ -22,7 +23,7 @@ Session::init();
     </head>
 
     <body>
-        <div class="loader"></div>
+<!--        <div class="loader"></div>-->
         <div id="google_translate_element"></div>
         <!-- header -->
         <div class="col-md-12 col-sm-offset-0 header">

@@ -13,6 +13,7 @@ $db = new Database();
 <html>
     <head>
         <title>Farmous</title>
+        <link rel="icon"  href="../images/favicon.ico" />
         <link href="../public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../public/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../public/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" /> 
@@ -21,12 +22,6 @@ $db = new Database();
         <link href="../public/css/dataTables.bootstrap4.css" rel="stylesheet" >
         <link href="../public/css/font-awesome.min.css" rel="stylesheet" >
         <link href="../public/css/sb-admin.css" rel="stylesheet" >
-
-
-
-
-
-
     </head>
     <body>
         <!-- header -->

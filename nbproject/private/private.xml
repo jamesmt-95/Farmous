@@ -5,7 +5,13 @@
         <group>
             <file>file:/C:/xampp/htdocs/testfarmous/exec/check_login.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/exec/save_data.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/public/js/validate.js</file>
             <file>file:/C:/xampp/htdocs/testfarmous/config/config.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/user_profile.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/core/user_footer.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/public/js/execute.js</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/register.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/public/css/style.css</file>
             <file>file:/C:/xampp/htdocs/testfarmous/login.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/core/Hash.php</file>
         </group>

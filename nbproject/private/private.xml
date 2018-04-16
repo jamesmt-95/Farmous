@@ -3,17 +3,45 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/testfarmous/exec/check_login.php</file>
-            <file>file:/C:/xampp/htdocs/testfarmous/exec/save_data.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/add_product.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_header.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/public/js/validate.js</file>
-            <file>file:/C:/xampp/htdocs/testfarmous/config/config.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_view_product.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/view_location.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/user_profile.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/index.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/core/user_footer.php</file>
-            <file>file:/C:/xampp/htdocs/testfarmous/public/js/execute.js</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/data_fetch_admin.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/public/data_access/data_fetcher_public.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/login.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/core/user_header.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/view_category.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/reward_card.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/view_product.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_footer.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/location_edit.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/profile_info.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/register.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/public/css/style.css</file>
-            <file>file:/C:/xampp/htdocs/testfarmous/login.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/notification.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/exec/check_login.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/exec/save_data.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/core/user_logout.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_category.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/manage_product.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/product_search.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_login.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_logout.php</file>
             <file>file:/C:/xampp/htdocs/testfarmous/core/Hash.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/products.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/seller_desk.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_home.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_add_location_details.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/view_customer.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/admin/admin_mng_approve_prd.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/config/config.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/core/send_sms.php</file>
+            <file>file:/C:/xampp/htdocs/testfarmous/public/js/execute.js</file>
         </group>
     </open-files>
 </project-private>

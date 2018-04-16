@@ -8,6 +8,7 @@ require_once './public/data_access/data_fetcher_public.php';
 Session::init();
 //$db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
 $db = new Database();
+
 ?>
 <div class="clearfix"></div>
 <!--products page to display contents -->
@@ -96,7 +97,8 @@ $db = new Database();
 
             <div class="col-md-3 top_brand_left">
                 <div class="hover14 column">
-                    <a target="_blank" href="view_product.php?73ce347c9ef8a7b158b4529673bf67ff=<?php echo $each_fet_product['prd_id']; ?>&534ec62ce4097791f3273f229ef5803c
+                    <a target="_blank" href="view_product.php?9acb44549b415b326b5062b2f0e69046810717534cb63697bb490144ec6258
+b326b5062b2f0e69046810717534cb09&73ce347c9ef8a7b158b4529673bf67ff=<?php echo base64_encode($each_fet_product['prd_id'] . $key) ?>&534ec62ce4097791f3273f229ef5803c
 =c0f5de72e5c2cebef43b1bbb15ddd08e&9acb44549b41563697bb490144ec6258
 =b326b5062b2f0e69046810717534cb09">
                         <div class="farmous_top_brand_left_grid">

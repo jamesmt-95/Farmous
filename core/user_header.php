@@ -18,8 +18,6 @@ Session::init();
         <link href="./public/css/style.css" rel="stylesheet" type="text/css" media="all" />
         <link href="./public/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
         <link href="../public/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" />
-
-
     </head>
 
     <body>

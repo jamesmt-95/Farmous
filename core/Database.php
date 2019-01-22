@@ -8,11 +8,21 @@ class Database extends PDO {
         $DB_NAME = 'farmous_db';
         $DB_USER = 'root';
         $DB_PASS = '';
-        
-        
+    
+// :: (scope resolution operator) It's used to access class methods / properties:
+
         parent::__construct($DB_TYPE . ':host=' . $DB_HOST . ';dbname=' . $DB_NAME, $DB_USER, $DB_PASS);
+        //$conn = new PDO($DB_TYPE . ':host=' . $DB_HOST . ';dbname=' . $DB_NAME, $DB_USER, $DB_PASS);
+      //  Constructor in PHP is special type of function of a class which is automatically executed as any object of that class is created or instantiated
         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+// PDO::setAttribute sets an attribute on the database handle.
+// PDO::ATTR_ERRMODE: This attribute is used for error reporting
+// PDO::ERRMODE_EXCEPTION: Throw exceptions.
         $this->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
+
+// -> is used to call/set a method/value on the object of a class
+
+// => is used to assign values to the keys of an array
     }
 
 }
@@ -27,7 +37,7 @@ class Database extends PDO {
   try {
   $db = new PDO("mysql:$SERVER;dbname=$DB", $USER, $PASS);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+ echo "Connected successfully"; 
   }
   catch(PDOException $e)
   {

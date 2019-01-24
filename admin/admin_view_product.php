@@ -45,7 +45,7 @@ if (!isset($_SESSION['admin_id'])) {
                         <td><?php echo $each_prd_details['price']; ?></td>
                         <td><?php echo strtoupper($each_prd_details['stock']); ?></td>
                         <td><center><img src="../<?php echo $each_prd_details['image']; ?>"  height="70px" width="70px"></center></td>
-<!--                <td><?php// echo $each_prd_details['register_id']; ?></td>-->
+<!--                <td>// echo $each_prd_details['register_id']; ?></td>-->
 
                 </tr>
 

@@ -8,7 +8,6 @@ require_once './public/data_access/data_fetcher_public.php';
 Session::init();
 //$db = new Database(DB_TYPE, DB_HOST, DB_NAME, DB_USER, DB_PASS);
 $db = new Database();
-
 ?>
 <div class="clearfix"></div>
 <!--products page to display contents -->
@@ -39,6 +38,7 @@ $db = new Database();
                         <option value=<?php echo $each_prd_type['product_type_id']; ?>><?php echo strtoupper($each_prd_type['product_type_name']); ?></option>
                     <?php } ?>
 
+                   
                 </select>
             </div>
 

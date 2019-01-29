@@ -20,7 +20,6 @@ class Database extends PDO {
 // PDO::ERRMODE_EXCEPTION: Throw exceptions.
         $this->setAttribute(PDO::ATTR_EMULATE_PREPARES, FALSE);
 // -> is used to access an object method or property. Example: $obj->method().
-
 // => is used to assign values to the keys of an array (or associative array key value assignment)
 // eg: $ages = array("Peter"=>32, "Quagmire"=>30, "Joe"=>34, 1=>2); 
     }
